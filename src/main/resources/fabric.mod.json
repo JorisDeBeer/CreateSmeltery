@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "createsmeltery",
+	"version": "${version}",
+	"name": "Create Smeltery",
+	"description": "A addon for create that makes smelting materials possible!",
+	"authors": [
+		"JorisDeBeer"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT License",
+	"icon": "assets/createsmeltery/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.jorisdebeer.createsmeltery.CreateSmeltery"
+		],
+		"client": [
+			"net.jorisdebeer.createsmeltery.CreateSmelteryClient"
+		],
+		"fabric-datagen": [
+			"net.jorisdebeer.ExampleModDataGenerator"
+		]
+	},
+	"mixins": [
+		"createsmeltery.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.19.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
