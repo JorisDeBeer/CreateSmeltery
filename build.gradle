@@ -47,9 +47,13 @@ sourceSets {
 	}
 }
 dependencies {
-	// To change the versions see the gradle.properties file
+    // To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	mappings(loom.layered {
+		it.mappings("org.quiltmc:quilt-mappings:${minecraft_version}+build.${qm_version}:intermediary-v2")
+		it.parchment("org.parchmentmc.data:parchment-${minecraft_version}:${parchment_version}@zip")
+		it.officialMojangMappings { nameSyntheticMembers = false }
+	})
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
@@ -69,6 +73,10 @@ dependencies {
 	// Development QOL
 	modLocalRuntime("maven.modrinth:lazydfu:${lazydfu_version}")
 	//modLocalRuntime("com.terraformersmc:modmenu:${modmenu_version}")
+
+	//porting lib?
+	//modImplementation(include("io.github.fabricators_of_create.Porting-Lib:<Porting-Lib>:<2.1.1096>"))
+
 }
 
 processResources {
